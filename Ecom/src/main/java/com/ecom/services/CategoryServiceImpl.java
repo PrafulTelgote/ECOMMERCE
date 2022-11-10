@@ -44,7 +44,10 @@ public class CategoryServiceImpl implements CategoryServices {
 		// TODO Auto-generated method stub
 		Optional<Categorys> data= Cdao.findById(id);
 		if(data.isPresent()) {
-		 Cdao.save(cat);
+			data.get().setCatname(cat.getCatname());
+			data.get().setImgUrl(cat.getImgUrl());
+		 Cdao.save(data.get());
+		 
 		 return data.get();		}
 		
 		return null;
