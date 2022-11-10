@@ -1,5 +1,7 @@
 package com.ecom.services;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,5 +22,18 @@ public class AdminServiceImpl implements AdminServices {
 		
 		return ad;
 	}
+
+
+//	@Override
+//	public String Login(String userId, String Password) {
+//		// TODO Auto-generated method stub
+//		
+//		 Optional user= dao.findByUserId(userId);
+//		 if(user.isPresent()) {
+//			 return "ok";
+//		 }
+//		
+//		return null;
+//	}
 
 }
