@@ -1,5 +1,6 @@
 package com.ecom.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -21,8 +22,8 @@ public class Product {
 	private Integer sellPrice;
 	private Integer Stock;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "categoryid", referencedColumnName = "catId")
+	@ManyToOne (cascade = CascadeType.ALL,  fetch = FetchType.LAZY)
+	@JoinColumn(name = "catId", referencedColumnName = "catId")
 	private Categorys categorys;
 	
 	public Integer getProductId() {
@@ -67,6 +68,12 @@ public class Product {
 	public void setCategorys(Categorys categorys) {
 		this.categorys = categorys;
 	}
+	@Override
+	public String toString() {
+		return "Product [productId=" + productId + ", name=" + name + ", img=" + img + ", marketPrice=" + marketPrice
+				+ ", sellPrice=" + sellPrice + ", Stock=" + Stock + ", categorys=" + categorys + "]";
+	}
+	
 	
 	
 	

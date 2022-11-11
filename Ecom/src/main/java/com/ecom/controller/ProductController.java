@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ecom.model.Product;
-import com.ecom.model.productDto;
 import com.ecom.services.ProductServices;
 
 @RestController
@@ -25,8 +24,12 @@ public class ProductController {
 		return new ResponseEntity<Product>(data, HttpStatus.CREATED);
 	}
 	
-	public ResponseEntity<List<Product>> getallProduct(){
-		List<Product> data=services.GetAllProduct();
+	@GetMapping("/admin/products")
+	ResponseEntity<List<Product>> GetProductHandler(){
+		List<Product> data= services.GetProducts();
 		return new ResponseEntity<List<Product>>(data, HttpStatus.OK);
+		
 	}
+	
+	
 }
