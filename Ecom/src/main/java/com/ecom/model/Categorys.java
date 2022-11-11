@@ -21,8 +21,7 @@ public class Categorys {
 	private String catname;
 	private String ImgUrl;
 	
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = "categorys")
-	private List<Product> product=new ArrayList<Product>();
+	
 	
 	
 	public Integer getCatId() {
@@ -43,17 +42,20 @@ public class Categorys {
 	public void setImgUrl(String imgUrl) {
 		ImgUrl = imgUrl;
 	}
-	public List<Product> getProduct() {
-		return product;
-	}
-	public void setProduct(List<Product> product) {
-		this.product = product;
-	}
 	@Override
 	public String toString() {
-		return "Categorys [catId=" + catId + ", catname=" + catname + ", ImgUrl=" + ImgUrl + ", product=" + product
-				+ "]";
+		return "Categorys [catId=" + catId + ", catname=" + catname + ", ImgUrl=" + ImgUrl + "]";
 	}
+	public Categorys(Integer catId, String catname, String imgUrl) {
+		super();
+		this.catId = catId;
+		this.catname = catname;
+		ImgUrl = imgUrl;
+	}
+	public Categorys() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	
 	
 	

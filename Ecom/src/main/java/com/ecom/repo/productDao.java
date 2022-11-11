@@ -1,9 +1,11 @@
 package com.ecom.repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.ecom.model.Product;
 
-public interface productDao extends JpaRepository<Product, Integer> {
+@Repository
+public interface ProductDao extends JpaRepository<Product, Integer> {
 
 }

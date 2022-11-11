@@ -1,6 +1,5 @@
 package com.ecom.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,70 +11,96 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Product {
 	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer productId;
-	private String name;
-	private String img;
-	private Integer marketPrice;
-	private Integer sellPrice;
-	private Integer Stock;
+	private Integer productid;
+	private String productname;
+	private String productimg;
+	private String description;
+	private Long Marketprice;
+	private Long Saleprice;
 	
-	@ManyToOne (cascade = CascadeType.ALL,  fetch = FetchType.LAZY)
-	@JoinColumn(name = "catId", referencedColumnName = "catId")
+	@ManyToOne
+	@JoinColumn(name="Categoryid", referencedColumnName = "catId")
 	private Categorys categorys;
-	
-	public Integer getProductId() {
-		return productId;
+
+	public Integer getProductid() {
+		return productid;
 	}
-	public void setProductId(Integer productId) {
-		this.productId = productId;
+
+	public void setProductid(Integer productid) {
+		this.productid = productid;
 	}
-	public String getName() {
-		return name;
+
+	public String getProductname() {
+		return productname;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	public void setProductname(String productname) {
+		this.productname = productname;
 	}
-	public String getImg() {
-		return img;
+
+	public String getProductimg() {
+		return productimg;
 	}
-	public void setImg(String img) {
-		this.img = img;
+
+	public void setProductimg(String productimg) {
+		this.productimg = productimg;
 	}
-	public Integer getMarketPrice() {
-		return marketPrice;
+
+	public String getDescription() {
+		return description;
 	}
-	public void setMarketPrice(Integer marketPrice) {
-		this.marketPrice = marketPrice;
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
-	public Integer getSellPrice() {
-		return sellPrice;
+
+	public Long getMarketprice() {
+		return Marketprice;
 	}
-	public void setSellPrice(Integer sellPrice) {
-		this.sellPrice = sellPrice;
+
+	public void setMarketprice(Long marketprice) {
+		Marketprice = marketprice;
 	}
-	public Integer getStock() {
-		return Stock;
+
+	public Long getSaleprice() {
+		return Saleprice;
 	}
-	public void setStock(Integer stock) {
-		Stock = stock;
+
+	public void setSaleprice(Long saleprice) {
+		Saleprice = saleprice;
 	}
+
 	public Categorys getCategorys() {
 		return categorys;
 	}
+
 	public void setCategorys(Categorys categorys) {
 		this.categorys = categorys;
 	}
+
 	@Override
 	public String toString() {
-		return "Product [productId=" + productId + ", name=" + name + ", img=" + img + ", marketPrice=" + marketPrice
-				+ ", sellPrice=" + sellPrice + ", Stock=" + Stock + ", categorys=" + categorys + "]";
+		return "Product [productid=" + productid + ", productname=" + productname + ", productimg=" + productimg
+				+ ", description=" + description + ", Marketprice=" + Marketprice + ", Saleprice=" + Saleprice
+				+ ", categorys=" + categorys + "]";
+	}
+
+	public Product(Integer productid, String productname, String productimg, String description, Long marketprice,
+			Long saleprice, Categorys categorys) {
+		super();
+		this.productid = productid;
+		this.productname = productname;
+		this.productimg = productimg;
+		this.description = description;
+		Marketprice = marketprice;
+		Saleprice = saleprice;
+		this.categorys = categorys;
 	}
 	
-	
-	
-	
+	public Product() {
+		// TODO Auto-generated constructor stub
+	}
 
 }

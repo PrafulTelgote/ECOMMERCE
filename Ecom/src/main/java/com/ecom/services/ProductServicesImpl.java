@@ -9,56 +9,84 @@ import org.springframework.stereotype.Service;
 import com.ecom.model.Categorys;
 import com.ecom.model.Product;
 import com.ecom.repo.CategoryDao;
-import com.ecom.repo.productDao;
-
+import com.ecom.repo.ProductDao;
 
 @Service
 public class ProductServicesImpl implements ProductServices {
 
 	@Autowired
-	private productDao Pdao;
+	private ProductDao Pdao;
 	
 	@Autowired
 	private CategoryDao Cdao;
 	
+	
 	@Override
-	public Product AddProduct(Product product) {
+	public String AddProduct(Product product) {
 		// TODO Auto-generated method stub
-		Optional<Categorys> cat= Cdao.findById(product.getCategorys().getCatId());
-		if(cat.isPresent()) {
-			cat.get().getProduct().add(product);
-			Product data=Pdao.save(product);
-			return data;
+		Integer Cid=product.getCategorys().getCatId();
+		Optional<Categorys> data= Cdao.findById(Cid);
+		if(data.isPresent()) {
+			Pdao.save(product);
+			return "Added";
+		}else {
+			
+			return "CAtegorys not found";
 		}
-		else {
-			System.out.println("Categoey not found");
+	}
+
+
+	@Override
+	public List<Product> GetAllProducts() {
+		List<Product> data= Pdao.findAll();
+		if(data.size()>0) {
+			return data;
+		}else {
+			System.out.println("no Product added");
 			return null;
 		}
-		
-		
-		
 	}
 
-	@Override
-	public List<Product> GetProducts() {
-		// TODO Auto-generated method stub
-//		System.out.println("data");
-		List<Product> data= Pdao.findAll();
-//		System.out.println("data 2");
-		return data;
-	}
 
 	@Override
-	public Product UpdateProduct(Integer id, Product product) {
+	public String UpdateProduct(Integer id, Product product) {
+		
+		Optional<Product> data=Pdao.findById(id);
+		if(data.isPresent()) {
+			Product updat= data.get();
+			updat.setCategorys(product.getCategorys());
+			updat.setDescription(product.getDescription());
+			updat.setMarketprice(product.getMarketprice());
+			updat.setProductimg(product.getProductimg());
+			updat.setProductname(product.getProductname());
+			updat.setSaleprice(product.getSaleprice());
+			Pdao.save(updat);
+			return "done";
+		}
+		
+		return"no";
+	}
+
+
+	@Override
+	public String DeleteProduct(Integer id) {
 		// TODO Auto-generated method stub
-//		 Optional<Product> data= Pdao.findById(id);
-//		 if(data.isPresent()) {
-//			 data.get().setCategorys(null);
-//			 data.get().setImg(null);
-//			 data.get().setMarketPrice();
-//			 data.get()
-//			 }
-		return null;
+		
+		Optional<Product> data=Pdao.findById(id);
+		if(data.isPresent()) {
+			Pdao.delete(data.get());
+			return "Deleted";
+		}
+		return "Not Delete";
 	}
 	
+	
+	
+	
+	
+	
+	 
+	
+
+
 }
