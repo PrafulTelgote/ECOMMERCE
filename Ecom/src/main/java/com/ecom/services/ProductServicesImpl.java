@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ecom.model.AddToCart;
 import com.ecom.model.Categorys;
 import com.ecom.model.Product;
 import com.ecom.repo.CategoryDao;
@@ -19,6 +20,9 @@ public class ProductServicesImpl implements ProductServices {
 	
 	@Autowired
 	private CategoryDao Cdao;
+	
+	@Autowired
+	private AddToCart cart;
 	
 	
 	@Override
@@ -79,6 +83,9 @@ public class ProductServicesImpl implements ProductServices {
 		}
 		return "Not Delete";
 	}
+
+
+	
 	
 	
 	
