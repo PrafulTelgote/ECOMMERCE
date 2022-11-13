@@ -1,11 +1,16 @@
 package com.ecom.model;
 
+
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 
@@ -54,6 +59,7 @@ public class User {
 		this.email = email;
 	}
 
+
 	public Address getAddress() {
 		return address;
 	}
@@ -62,6 +68,8 @@ public class User {
 		this.address = address;
 	}
 	
+	
+
 	
 	
 
