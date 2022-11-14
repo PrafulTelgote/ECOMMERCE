@@ -17,8 +17,8 @@ public class Product {
 	private String productname;
 	private String productimg;
 	private String description;
-	private Long Marketprice;
-	private Long Saleprice;
+	private Double Marketprice;
+	private Double Saleprice;
 	
 	@ManyToOne
 	@JoinColumn(name="Categoryid", referencedColumnName = "catId")
@@ -83,28 +83,35 @@ public class Product {
 
 
 
-	public Long getMarketprice() {
+	
+
+
+
+
+
+
+	public Double getMarketprice() {
 		return Marketprice;
 	}
 
 
 
 
-	public void setMarketprice(Long marketprice) {
+	public void setMarketprice(Double marketprice) {
 		Marketprice = marketprice;
 	}
 
 
 
 
-	public Long getSaleprice() {
+	public Double getSaleprice() {
 		return Saleprice;
 	}
 
 
 
 
-	public void setSaleprice(Long saleprice) {
+	public void setSaleprice(Double saleprice) {
 		Saleprice = saleprice;
 	}
 

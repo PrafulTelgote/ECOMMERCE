@@ -27,7 +27,7 @@ public class Cart {
 	@OneToMany
 	private Set<Item> items=new HashSet<Item>();
 	
-	private Float total;
+	private Double total;
 	
 	@OneToOne
 	@JoinColumn(name = "UserId",referencedColumnName = "userid")
@@ -71,12 +71,12 @@ public class Cart {
 	}
 
 
-	public Float getTotal() {
+	public Double getTotal() {
 		return total;
 	}
 
 
-	public Cart(Integer cartid, Set<Item> items, Float total) {
+	public Cart(Integer cartid, Set<Item> items, Double total) {
 		super();
 		Cartid = cartid;
 		this.items = items;
@@ -90,7 +90,7 @@ public class Cart {
 	}
 
 
-	public void setTotal(Float total) {
+	public void setTotal(Double total) {
 		this.total = total;
 	}
 	

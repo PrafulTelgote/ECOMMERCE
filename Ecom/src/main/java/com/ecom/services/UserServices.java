@@ -10,6 +10,7 @@ public interface UserServices {
 	public User Register(User user);
 	public User UpdateUser(Integer id, User user);
 	public String DeleteUser(Integer id);
+	public List<Product> product();
 	
 	public String product(Integer userid,Integer productid);
 	

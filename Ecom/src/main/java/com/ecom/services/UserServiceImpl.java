@@ -81,37 +81,34 @@ public class UserServiceImpl implements UserServices {
 	@Override
 	public String product(Integer userid, Integer productid) {
 		// TODO Auto-generated method stub
-		
-		Optional<User> data=Cdao.findByuser(userid);
+		Item items=new Item();
+		Cart cart=new Cart();
+		Optional<User> data= Udao.findById(userid);
 		Optional<Product> Pdata=Pdao.findById(productid);
-//		if(data.isPresent() && Pdata.isPresent()) {
-			
-			Item items=new Item();
+		if(data.isPresent() && Pdata.isPresent()) {
 			items.setProduct(Pdata.get());
-//			items.setQuantity(Quatity);
-//			items.setTotal(Pdata.get().getSaleprice()*Quatity);
+			items.setQuantity(10);
+//			items.setTotal(Pdata.get().getSaleprice()*10);
+			Idao.save(items);
+//			Double total=0.0;
+			Set<Item> cartdata= cart.getItems();
+//			for(Item i:cartdata) {
+////				System.out.println(i);
+//				total=total+i.getTotal();
+//			}
+////			System.out.println(total);
+//			cart.setTotal(total);
 			
-			Cart cart=new Cart();
-			cart.getItems().add(items);
+			cartdata.add(items);
+			
 			cart.setUser(data.get());
 			Cdao.save(cart);
-			return "Added";
-			
-//		}else if(data.isEmpty() && Pdata.isPresent()) {
-//			Item items=new Item();
-//			items.setProduct(Pdata.get());
-////			items.setQuantity(Quatity);
-////			items.setTotal(Pdata.get().getSaleprice()*Quatity);
-//			
-//			Cart cart=new Cart();
-//			cart.getItems().add(items);
-////			cart.setUser(data.get());
-//			Cdao.save(cart);
-//			return "Added";
-				
-//		}else {
-//			return "not added to cart";
-//		}
+			return "yse";
+		}else {
+			return "no";
+		}
+		
+
 	}
 
 	

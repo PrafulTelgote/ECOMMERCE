@@ -16,7 +16,7 @@ public class Item {
 	private Product product;
 	private Integer Quantity;
 	
-	private Float Total;
+	private Double Total;
 
 	public Integer getItemid() {
 		return itemid;
@@ -42,11 +42,11 @@ public class Item {
 		Quantity = quantity;
 	}
 
-	public Float getTotal() {
+	public Double getTotal() {
 		return Total;
 	}
 
-	public void setTotal(Float total) {
+	public void setTotal(Double total) {
 		Total = total;
 	}
 
@@ -55,7 +55,7 @@ public class Item {
 		return "Item [itemid=" + itemid + ", product=" + product + ", Quantity=" + Quantity + ", Total=" + Total + "]";
 	}
 
-	public Item(Integer itemid, Product product, Integer quantity, Float total) {
+	public Item(Integer itemid, Product product, Integer quantity, Double total) {
 		super();
 		this.itemid = itemid;
 		this.product = product;
