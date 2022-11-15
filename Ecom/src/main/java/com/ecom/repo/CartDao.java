@@ -9,6 +9,6 @@ import com.ecom.model.User;
 
 public interface CartDao extends JpaRepository<Cart, Integer> {
 
-	public Optional<User> findByuser(Integer id);
+	public Optional<Cart> findByuser(Integer id);
 	
 }

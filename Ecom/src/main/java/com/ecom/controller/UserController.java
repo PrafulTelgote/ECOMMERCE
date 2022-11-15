@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ecom.model.Cart;
 import com.ecom.model.Product;
 import com.ecom.model.User;
 import com.ecom.services.UserServices;
@@ -64,6 +65,15 @@ public class UserController {
 		
 	}
 	
+	
+//	@GetMapping("user/getcart")
+//	public ResponseEntity<Cart> GetcartDetailsHandler(@RequestParam Integer id){
+//     Cart cart = Uservices.getCart(id);
+//     return new ResponseEntity<Cart>(cart, HttpStatus.OK);
+//		
+//		
+//	}
+//	
 	
 	
 	

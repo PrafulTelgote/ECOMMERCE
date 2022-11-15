@@ -85,19 +85,20 @@ public class UserServiceImpl implements UserServices {
 		Cart cart=new Cart();
 		Optional<User> data= Udao.findById(userid);
 		Optional<Product> Pdata=Pdao.findById(productid);
+		
 		if(data.isPresent() && Pdata.isPresent()) {
 			items.setProduct(Pdata.get());
 			items.setQuantity(10);
-//			items.setTotal(Pdata.get().getSaleprice()*10);
+			items.setTotal(Pdata.get().getSaleprice()*10);
 			Idao.save(items);
-//			Double total=0.0;
+			Double total=0.0;
 			Set<Item> cartdata= cart.getItems();
-//			for(Item i:cartdata) {
-////				System.out.println(i);
-//				total=total+i.getTotal();
-//			}
-////			System.out.println(total);
-//			cart.setTotal(total);
+			for(Item i:cartdata) {
+				System.out.println(i);
+				total=total+i.getTotal();
+			}
+			System.out.println(total);
+			cart.setTotal(total);
 			
 			cartdata.add(items);
 			
@@ -110,6 +111,16 @@ public class UserServiceImpl implements UserServices {
 		
 
 	}
+
+//	@Override
+//	public Cart getCart(Integer id) {
+//		// TODO Auto-generated method stub
+//		Optional<Cart> data= Cdao.findByuser(id);
+//		if(data.isPresent()) {
+//			return data.get();
+//		}
+//		return null;
+//	}
 
 	
 
