@@ -37,10 +37,7 @@ public ResponseEntity<Admin> RegisterHandler(@RequestBody Admin admin){
 	
 	
 }
-	@GetMapping("/index")
-	public String GoHome() {
-		return "index";
-	}
+	
 
 //Product Controller
 	
