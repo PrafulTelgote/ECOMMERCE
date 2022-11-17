@@ -14,6 +14,7 @@ public interface UserServices {
 	public List<Product> product();
 	
 	public String product(Integer userid,Integer productid);
+	public String buyproduct(Integer userid,Integer productid);
 	
 //	public Cart getCart(Integer id);
 	

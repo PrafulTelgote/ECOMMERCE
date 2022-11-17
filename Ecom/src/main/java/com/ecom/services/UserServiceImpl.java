@@ -112,6 +112,19 @@ public class UserServiceImpl implements UserServices {
 
 	}
 
+	@Override
+	public String buyproduct(Integer userid, Integer productid) {
+		// TODO Auto-generated method stub
+	  Optional<User> Udata=	Udao.findById(userid);
+	  Optional<Product> Pdata=Pdao.findById(productid);
+	  if(Udata.isPresent() && Pdata.isPresent()) {
+		  return "orderplace "+Pdata.get().getSaleprice();
+	  }else {
+		  return "enter Correct Details";
+	  }
+		
+	}
+
 //	@Override
 //	public Cart getCart(Integer id) {
 //		// TODO Auto-generated method stub

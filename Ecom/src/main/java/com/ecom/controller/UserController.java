@@ -76,6 +76,12 @@ public class UserController {
 //	
 	
 	
+	@GetMapping("/user/buy")
+	public ResponseEntity<String> buyProductHandler(@RequestParam Integer userid,@RequestParam Integer Productid){
+		String data = Uservices.buyproduct(userid, Productid);
+		return new ResponseEntity<String>(data, HttpStatus.OK);
+	}
+	
 	
 	
 	
